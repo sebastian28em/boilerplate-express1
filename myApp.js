@@ -5,12 +5,13 @@ let app = express();
 console.log("Hello World");
 
 // Ejercicio 2: servir "Hello Express" en la raíz
-app.get("/", (req, res) => {
-  res.send("Hello Express");
+app.get("/", function(req, res) {
+ const absolutePath=__dirname + "/views/index.html";
+ res.sendFile(absolutePath);
 });
 
 // Ruta JSON
-app.get("/json", (req, res) => {
+app.get("/json", function(req, res) {
   res.json({
     message: "Hello World"
   });
@@ -18,10 +19,9 @@ app.get("/json", (req, res) => {
 
 // Escuchar en el puerto 3000
 const PORT = 3000;
-app.listen(PORT, () => {
+app.listen(PORT, function() {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
-
 
 module.exports = app;
 
@@ -58,4 +58,5 @@ module.exports = app;
 
 
 
- module.exports = app;
+
+
