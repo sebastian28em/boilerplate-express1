@@ -1,21 +1,23 @@
-
-// myApp.js
-console.log("Hola mundo"); // Esto imprimirá "Hola mundo" en la consola
-
-const express = require('express');
-const app = express();
-const PORT = 3000;
-
-// Ruta principal
-app.get('/', (req, res) => {
-  res.send('Servidor corriendo');
+let express = require('express');
+let app = express();
+// Ejercicio: 3 servir el archivo index.html en la ruta raíz
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/views/index.html");
+});
+// Ejercicio: 2 servir la cadena en la ruta raíz
+app.get("/", (req, res) => {
+  res.send("Hello Express");
 });
 
-// Inicia el servidor y mantiene el proceso activo
-app.listen(PORT, () => {
-  console.log(`Servidor escuchando en el puerto ${PORT}...`);
+// Ejercicio: 1 "Hello World"
+console.log("Hello World");
+app.get("/json", (req, res) => {
+  res.json({
+    message: "Hello World"
+  });
 });
 
+module.exports = app;
 
 
 
