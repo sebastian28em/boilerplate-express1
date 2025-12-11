@@ -1,5 +1,8 @@
 let express = require('express');
 let app = express();
+
+// Ejercicio: 4 servir activos estáticos desde la carpeta /public
+app.use("/public", express.static(__dirname + "/public"));
 // Ejercicio: 3 servir el archivo index.html en la ruta raíz
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
