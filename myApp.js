@@ -2,6 +2,12 @@ require('dotenv').config();
 let express = require('express');
 let app = express();
 
+//  ejercicio 7 Middleware de registrador de solicitudes
+app.use(function(req, res, next) {
+  console.log(req.method + " " + req.path + " - " + req.ip);
+  next();
+});
+
 app.get('/', (req, res) => {
   res.send('Hello Express');
 });
