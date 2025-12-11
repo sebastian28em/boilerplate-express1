@@ -1,5 +1,6 @@
 let express = require('express');
 let app = express();
+const path = require('path');
 
 // Ejercicio 1: "Hello World" en la consola
 console.log("Hello World");
@@ -11,7 +12,7 @@ app.get("/hello", (req, res) => {
 
 // Ejercicio 3: servir el archivo index.html en la ruta raíz
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/views/index.html");
+  res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
 // Ruta JSON
