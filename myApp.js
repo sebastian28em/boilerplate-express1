@@ -1,6 +1,9 @@
 require('dotenv').config();
 let express = require('express');
 let app = express();
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
 // Endpoint GET /name usando parámetros de consulta
 app.get('/name', (req, res) => {
   const firstName = req.query.first;
