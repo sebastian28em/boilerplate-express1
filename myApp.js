@@ -8,6 +8,11 @@ app.use(function(req, res, next) {
   next();
 });
 
+// ejercicio 9 Ruta de eco usando parámetro de ruta
+app.get('/:word/echo', (req, res) => {
+  res.json({ echo: req.params.word });
+});
+
 app.get('/', (req, res) => {
   res.send('Hello Express');
 });
